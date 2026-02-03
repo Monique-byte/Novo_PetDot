@@ -11,7 +11,6 @@ import ContLogin from './Pages/Login/ContLogin.jsx';
 import ContCadastro from './Pages/Cadastro/ContCadastro.jsx';
 import ForgotPasswordPage from './Pages/Login/ForgotPasswordPage.jsx';
 import VerifyEmailPage from './Verify/VerifyEmailPage';
-import UnauthorizedPage from "./Pages/UnauthorizedPage";
 import NotFoundPage from './Pages/NotFoundPage.jsx';
 import PetProfilePage from './Pages/PetProfile/PetProfilePage.jsx';
 
@@ -70,7 +69,6 @@ function App() {
             </PrivateRoute>
           } />
 
-          <Route path="/unauthorized" element={<UnauthorizedPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AuthProvider>
