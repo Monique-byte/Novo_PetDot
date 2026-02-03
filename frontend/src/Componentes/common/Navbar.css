@@ -1,0 +1,164 @@
+.header-container {
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* FAIXA AZUL */
+.top-bar {
+  background-color: #044655;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-img {
+  height: 45px;
+  cursor: pointer;
+}
+
+/* FAIXA BRANCA */
+.nav-bar {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 5%;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* LINKS DA ESQUERDA */
+.nav-links-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links-left button {
+  background: none;
+  border: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.separator {
+  color: #ccc;
+  font-weight: 300;
+}
+
+/* AÇÕES DA DIREITA */
+.nav-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-heart {
+  color: #d9534f; /* Vermelho para o coração */
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.icon-nav {
+  color: #333;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* BOTÕES ESTILO PÍLULA (Conforme wireframe) */
+.btn-outline {
+  background-color: #f9f9f9;
+  border: 1px solid #333;
+  border-radius: 20px; /* Faz o formato arredondado */
+  padding: 5px 15px;
+  font-size: 13px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-outline:hover {
+  background-color: #eee;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .nav-links-left, .btn-outline {
+    display: none; /* Esconde no mobile para usar o hamburger */
+  }
+  
+  .mobile-menu {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-top: 1px solid #eee;
+  }
+  
+  .mobile-menu button {
+    padding: 10px;
+    border: none;
+    background: none;
+    text-align: left;
+  }
+}
+/* Estilo para o container do hamburger para posicionar o dropdown */
+.hamburger-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 40px; /* Ajuste conforme a altura da sua navbar */
+  right: 0;
+  background-color: white;
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  z-index: 2000;
+  border: 1px solid #eee;
+}
+
+.dropdown-menu button {
+  background: none;
+  border: none;
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.dropdown-menu button:hover {
+  background-color: #f5f5f5;
+  color: #044655;
+}
+
+.dropdown-menu hr {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 5px 0;
+}
+
+.logout-text {
+  color: #d9534f !important; /* Vermelho para o botão sair */
+}
+
+/* Esconde botões de autenticação no mobile se necessário */
+@media (max-width: 768px) {
+  .auth-buttons-desktop {
+    display: none;
+  }
+}

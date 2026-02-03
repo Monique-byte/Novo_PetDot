@@ -1,0 +1,15 @@
+# Dependências
+**/node_modules
+frontend/build
+backend/dist
+
+# Variáveis de Ambiente (Segurança)
+.env
+.env.local
+.env.development
+.env.production
+frontend/.env
+backend/.env
+
+# Outros
+.DS_Store

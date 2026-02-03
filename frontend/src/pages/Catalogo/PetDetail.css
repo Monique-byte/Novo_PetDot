@@ -1,0 +1,368 @@
+
+/* --- FUNDO DA PÁGINA COM GRADIENTE DINÂMICO --- */
+.detail-container {
+  min-height: 100vh;
+  /* Cores levemente mais vibrantes para o tema PetDot */
+  background: linear-gradient(-45deg, #f0f4f3, #eaf2f3, #ffffff, #c9e2e2);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- O CARD PRINCIPAL (GLASSMORPHISM PREMIUM) --- */
+.detail-card-glass {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  border-radius: 60px;
+  /* Sombra mais profunda para dar flutuação */
+  box-shadow: 0 40px 120px rgba(4, 70, 85, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  overflow: hidden;
+  animation: slideUpReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpReveal {
+  from { opacity: 0; transform: translateY(80px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* --- COLUNA ESQUERDA: CARROSSEL --- */
+.carousel-section {
+  padding: 40px;
+  background: rgba(248, 251, 251, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  border-right: 1px solid rgba(4, 70, 85, 0.05);
+}
+
+.main-image-wrapper {
+  position: relative;
+  height: 550px;
+  border-radius: 45px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18);
+}
+
+/* Efeito para animais indisponíveis */
+.gray-scale img {
+  filter: grayscale(100%) brightness(0.8) contrast(1.1);
+  transition: 0.8s ease;
+}
+
+.detail-img-animated {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Transição de revelação da imagem */
+  animation: imageReveal 0.9s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+@keyframes imageReveal {
+  from { transform: scale(1.3); filter: blur(20px); opacity: 0; }
+  to { transform: scale(1); filter: blur(0); opacity: 1; }
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 10;
+}
+
+.nav-btn {
+  background: white;
+  border: none;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.3rem;
+  /* Transição elástica */
+  transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn:hover {
+  background: #ff8c00;
+  color: white;
+  transform: scale(1.18) rotate(5deg);
+}
+
+.carousel-thumbnails {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.thumb {
+  width: 90px;
+  height: 90px;
+  border-radius: 22px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 4px solid transparent;
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.4;
+}
+
+.thumb.active {
+  border-color: #ff8c00;
+  opacity: 1;
+  transform: translateY(-10px) scale(1.1);
+  box-shadow: 0 15px 30px rgba(255, 140, 0, 0.2);
+}
+
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+/* --- COLUNA DIREITA: INFORMAÇÕES --- */
+.info-section {
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+/* Custom scrollbar suave */
+.info-section::-webkit-scrollbar { width: 6px; }
+.info-section::-webkit-scrollbar-thumb { background: #ced6d7; border-radius: 10px; }
+
+.specie-tag {
+  color: #ff8c00;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 4px;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.pet-name {
+  font-size: clamp(3rem, 5vw, 4.8rem);
+  color: #044655;
+  margin: 0;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.badge-row {
+  display: flex;
+  gap: 12px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.age-badge, .health-badge, .status-badge-red {
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.age-badge, .health-badge { background: #f0f7f8; color: #044655; }
+.status-badge-red { 
+  background: #fff0f0; 
+  color: #e63946; 
+  border: 1px solid #ffdbdb;
+  animation: pulseStatus 2s infinite;
+}
+
+@keyframes pulseStatus {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); opacity: 0.8; }
+  100% { transform: scale(1); }
+}
+
+/* --- BLOCOS DE CONTEÚDO (HISTÓRIA E HOBBIES) --- */
+.detail-section-block {
+  margin-top: 45px;
+}
+
+.detail-section-block h3 {
+  color: #044655;
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+  font-weight: 800;
+  position: relative;
+}
+
+.detail-section-block h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; left: 0;
+  width: 40px; height: 5px;
+  background: #ff8c00;
+  border-radius: 10px;
+}
+
+.hobbies-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hobby-pill {
+  background: rgba(255, 255, 255, 0.7);
+  color: #044655;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+  border: 1px solid rgba(4, 70, 85, 0.1);
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hobby-pill:hover {
+  background: #044655;
+  color: white;
+  transform: translateY(-6px) rotate(-2deg);
+  box-shadow: 0 10px 25px rgba(4, 70, 85, 0.2);
+}
+
+.pet-story {
+  font-size: 1.2rem;
+  line-height: 2;
+  color: #445553;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 35px;
+  border-radius: 40px;
+  border-left: 8px solid #ff8c00;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.04);
+  transition: 0.4s;
+}
+
+.pet-story:hover {
+  background: white;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.07);
+}
+
+/* --- AVISO DO PROJETO --- */
+.disclaimer-box {
+  margin-top: 50px;
+  padding: 25px;
+  background: #fff9db;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  color: #856404;
+  border: 2px dashed #f59f00;
+  line-height: 1.6;
+}
+
+.disclaimer-box strong { color: #d35400; font-weight: 800; }
+
+.detail-actions {
+  margin: 40px 0 20px;
+}
+
+.btn-adopt-premium {
+  background: linear-gradient(135deg, #044655 0%, #086d83 100%);
+  color: white;
+  border: none;
+  padding: 24px;
+  border-radius: 30px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.5s;
+  box-shadow: 0 20px 40px rgba(4, 70, 85, 0.3);
+  width: 100%;
+}
+
+.btn-adopt-premium:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(4, 70, 85, 0.4);
+  background: linear-gradient(135deg, #ff8c00 0%, #ffa500 100%);
+}
+
+.btn-adopt-disabled {
+  width: 100%;
+  padding: 24px;
+  border-radius: 30px;
+  background: #e1e7e8;
+  color: #95a5a6;
+  border: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.btn-back-detail {
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  background: #044655;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 800;
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 100;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.btn-back-detail:hover {
+  transform: translateX(-10px);
+  background: #ff8c00;
+  box-shadow: 0 15px 30px rgba(255, 140, 0, 0.3);
+}
+
+/* --- ANIMAÇÕES EM CASCATA --- */
+.slide-in-1 { animation: slideInAnim 0.8s ease both; }
+.slide-in-2 { animation: slideInAnim 0.8s ease 0.25s both; }
+.slide-in-3 { animation: slideInAnim 0.8s ease 0.45s both; }
+
+@keyframes slideInAnim {
+  from { opacity: 0; transform: translateX(50px); filter: blur(5px); }
+  to { opacity: 1; transform: translateX(0); filter: blur(0); }
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 1100px) {
+  .detail-card-glass { grid-template-columns: 1fr; border-radius: 45px; }
+  .carousel-section { padding: 30px; border-right: none; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .main-image-wrapper { height: 480px; }
+  .info-section { padding: 45px; max-height: none; }
+  .pet-name { font-size: 4rem; }
+}
+
+@media (max-width: 600px) {
+  .detail-container { padding: 40px 10px; }
+  .pet-name { font-size: 3rem; }
+  .main-image-wrapper { height: 380px; border-radius: 35px; }
+  .thumb { width: 75px; height: 75px; border-radius: 15px; }
+  .info-section { padding: 30px 20px; }
+  .btn-back-detail { top: 20px; left: 20px; padding: 10px 20px; font-size: 0.9rem; }
+}

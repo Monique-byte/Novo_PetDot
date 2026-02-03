@@ -1,0 +1,13 @@
+/* Reset básico apenas */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Se precisar que só a raiz pe 100% */
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  background-size: 70px;
+}

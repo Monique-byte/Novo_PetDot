@@ -1,0 +1,290 @@
+/* 1. CONFIGURAÇÕES GERAIS E VARIÁVEIS */
+:root {
+  --dark-teal: #044655;    /* Cor Header/Footer e Seções Escuras */
+  --aqua-green: #92b6b1;   /* Cor Hero */
+  --rosy-beige: #f1dada;   /* Cor Estatísticas */
+  --orange-bright: #ff8000; /* Cor Faixa Destaque */
+  --white: #ffffff;
+  --text-gray: #555;
+  --text-light: #bdc3c7;
+  --overlay-black: rgba(0, 0, 0, 0.7);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  color: var(--dark-teal);
+  background-color: var(--white);
+}
+
+/* 2. ESTATÍSTICAS (Faixa Rosada) */
+.Stats-Bar {
+  background-color: var(--rosy-beige);
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover { transform: translateY(-5px); }
+
+.icon-pulse {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.stat-content h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.stat-content p {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 3. CAMPANHA DE ADOÇÃO (Faixa Branca) */
+.Adoption-Campaign {
+  padding: 80px 10%;
+  background-color: var(--white);
+}
+
+.campaign-header h2 {
+  font-size: 1.8rem;
+  color: #c2185b;
+  margin-bottom: 10px;
+}
+
+.campaign-header p {
+  color: var(--text-gray);
+  font-size: 1rem;
+}
+
+.animated-hr {
+  border: 0;
+  border-top: 2px solid #333;
+  margin: 20px 0 40px 0;
+  width: 100%;
+}
+
+.pet-circles {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.pet-circle-item {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 4px solid var(--white);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.pet-circle-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pet-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.3s;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+}
+
+.pet-circle-item:hover .pet-overlay { opacity: 1; }
+
+/* 4. MISSÃO E PROPÓSITO (Faixa Azul Escuro) */
+.Mission-Purpose {
+  background-color: var(--dark-teal);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  padding: 80px 10%;
+  gap: 60px;
+}
+
+.mission-box {
+  flex: 1;
+  max-width: 450px;
+}
+
+.mission-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.mission-title h3 {
+  font-size: 1.6rem;
+  color: var(--white);
+}
+
+.mission-box p {
+  line-height: 1.7;
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.vertical-divider {
+  width: 1px;
+  background-color: rgba(255,255,255,0.2);
+  height: 120px;
+  align-self: center;
+}
+
+/* 5. PARCEIROS (Faixa Laranja) */
+.Partners-Banner {
+  background-color: var(--orange-bright);
+  padding: 60px 10%;
+  text-align: center;
+  color: var(--white);
+}
+
+.Partners-Banner h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+.btn-white-outline {
+  background: transparent;
+  border: 2px solid var(--white);
+  color: var(--white);
+  padding: 12px 45px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-white-outline:hover {
+  background: var(--white);
+  color: var(--orange-bright);
+  transform: scale(1.05);
+}
+
+/* 6. MODAL DE AVISO (Projeto Pessoal) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000; /* Acima da Navbar */
+  padding: 20px;
+  backdrop-filter: blur(4px); /* Efeito de desfoque no fundo */
+}
+
+.modal-content {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 24px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  position: relative;
+}
+
+.modal-icon {
+  font-size: 3.5rem;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.modal-content h2 {
+  color: var(--dark-teal);
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.modal-content p {
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.btn-close-modal {
+  background-color: var(--orange-bright);
+  color: var(--white);
+  border: none;
+  padding: 14px 50px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(255, 128, 0, 0.3);
+}
+
+.btn-close-modal:hover {
+  background-color: #e67300;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 128, 0, 0.4);
+}
+
+/* 7. RESPONSIVIDADE */
+@media (max-width: 992px) {
+  .Stats-Bar { gap: 40px; padding: 40px 20px; }
+  
+  .Mission-Purpose { 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    padding: 60px 10%;
+  }
+
+  .mission-title { justify-content: center; }
+  
+  .vertical-divider { display: none; }
+
+  .stat-content h3 { font-size: 1.6rem; }
+
+  .modal-content { padding: 30px 20px; }
+}

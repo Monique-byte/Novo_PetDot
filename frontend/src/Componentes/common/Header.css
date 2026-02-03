@@ -1,0 +1,47 @@
+
+.header-container {
+  background-color: #044655;
+  position: relative;
+  top: 0;
+  width: 100%;
+  padding: 10px 180px 10px 10px;  
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+
+.HeaderContent2 {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 15px;
+}
+
+.LogoHeader1 {
+  width: 43px;
+  height: 40px;
+  flex-shrink: 0;
+  /* Garante que não há background-color explícito aqui */
+}
+
+.HeaderTitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff; /* Cor do título no modo claro */
+  margin: 0;
+}
+
+
+@media (max-width: 600px) {
+  .HeaderTitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* Media query para a sidebar responsiva */
+/* Removi a classe .linha daqui, pois ela é a borda do .Header, não uma div separada */
+@media (max-width: 992px) {
+  /* Se você tiver uma div '.linha' e quiser estilizar sua largura, faria aqui, mas não é o caso atual */
+}
