@@ -6,16 +6,16 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Importações de Páginas
-import HomePage from './Pages/HomePage/PetDot.jsx'; 
-import ContLogin from './Pages/Login/ContLogin.jsx';
-import ContCadastro from './Pages/Cadastro/ContCadastro.jsx';
-import ForgotPasswordPage from './Pages/Login/ForgotPasswordPage.jsx';
+import HomePage from './pages/HomePage/PetDot.jsx'; 
+import ContLogin from './pages/Login/ContLogin.jsx';
+import ContCadastro from './pages/Cadastro/ContCadastro.jsx';
+import ForgotPasswordPage from './pages/Login/ForgotPasswordPage.jsx';
 import VerifyEmailPage from './Verify/VerifyEmailPage';
-import NotFoundPage from './Pages/NotFoundPage.jsx';
-import PetProfilePage from './Pages/PetProfile/PetProfilePage.jsx';
+import NotFoundPage from './pages/NotFoundPage.jsx';
+import PetProfilePage from './pages/PetProfile/PetProfilePage.jsx';
 
 // 1. ADICIONE ESTA IMPORTAÇÃO (Verifique o caminho da sua pasta)
-import PetCatalog from './Pages/Catalogo/PetCatalog.jsx'; 
+import PetCatalog from './pages/Catalogo/PetCatalog.jsx'; 
 
 // --- COMPONENTES DE CONTROLE DE ROTA (PrivateRoute, PublicOnlyRoute...) ---
 // (Mantenha as definições de PrivateRoute e PublicOnlyRoute aqui em cima como você já tem)
