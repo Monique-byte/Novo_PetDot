@@ -73,8 +73,8 @@ const PetDot = () => {
             
             <div className="pet-circles">
               {[ 
-                { id: 1, type: 'dog', color: 'pink-bg', img: '/dog.png' },
-                { id: 2, type: 'cat', color: 'blue-bg', img: '/gatinho.png' } 
+                { id: 1, type: 'dog', color: 'pink-bg', img: '/Dog.png' },
+                { id: 2, type: 'cat', color: 'blue-bg', img: '/Gatinho.png' } 
               ].map((pet) => (
                 <motion.div 
                   key={pet.id}
