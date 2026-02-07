@@ -6,10 +6,33 @@ require('dotenv').config();
 // Importação das Rotas
 const petRoutes = require('./routes/petroutes');
 const adoptionRoutes = require('./routes/adoptionroutes');
-const authRoutes = require('./routes/authRoutes'); // O seu arquivo que você postou agora
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
-app.use(cors());
+
+// --- CONFIGURAÇÃO DO CORS ---
+const allowedOrigins = [
+  'https://novo-pet-dot.vercel.app', // Seu link da Vercel
+  'http://localhost:3000',           // React local (se usar create-react-app)
+  'http://localhost:5173'            // React local (se usar Vite)
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Permite requisições sem origin (como aplicativos mobile ou ferramentas de teste tipo Postman)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Não permitido pelo CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+
 app.use(express.json());
 
 // --- CONEXÃO MONGODB ---
@@ -18,7 +41,6 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/petdot')
   .catch(err => console.error('❌ Erro Mongo:', err));
 
 // --- REGISTRO DE ROTAS ---
-// Note que o prefixo '/api/auth' vai se somar ao que está no seu authRoutes.js
 app.use('/api/auth', authRoutes); 
 app.use('/api/pets', petRoutes);
 app.use('/api/adoption', adoptionRoutes);
